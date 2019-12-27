@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample page</title>
+</head>
+<body>
+
+<table width="50%" border="1">
+   {% for k,v in user_info.items %}
+         <tr class="{% cycle 'odd' 'even' %}"><td>{{ k }}</td><td>{{ v }}</td></tr>
+    {% endfor %}
+</table>
+
+<a href="https://tutorschatdomain.auth.us-west-2.amazoncognito.com/logout?client_id=k49sm93943rj71uvo0vmhfoe0&logout_uri=http:%2f%2flocalhost:8080%2flogout%2F">LOGOUT</a>
+</body>
+</html>
