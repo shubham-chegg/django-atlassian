@@ -1,0 +1,33 @@
+{
+    "name": "tutors",
+    "description": "<Your app description>",
+    "version": "1.1",
+    "key": "some-private-key",
+    "baseUrl": "https://c8dc569f.ngrok.io",
+    "vendor": {
+        "name": "Chegg, Inc.",
+        "url": "http://www.chegg.com"
+    },
+    "authentication": {
+        "type": "jwt"
+    },
+    "scopes": [
+        "read", "write"
+    ],
+    "lifecycle": {
+        "installed": "/installed"
+    },
+    "apiVersion": 1,
+    "modules": {
+        "generalPages": [
+            {
+                "url": "/tutors",
+                "key": "some-private-key-2",
+                "location": "system.top.navigation.bar",
+                "name": {
+                    "value": "Tutors"
+                }
+            }
+        ]
+    }
+}

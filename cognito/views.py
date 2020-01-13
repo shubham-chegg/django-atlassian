@@ -49,6 +49,7 @@ def get_user_info(access_token):
 
 
 def get_tutor_page(request):
+    print(request)
     code = request.COOKIES.get('code')
 
     if not code:
@@ -60,9 +61,9 @@ def get_tutor_page(request):
         auth_code = code
 
     user_info = get_user_info(auth_code_dict[auth_code]['access_token'])
-    response = render(request, 'user_info.html', {"user_info" : user_info})
-    if not code:
-        response.set_cookie("code", auth_code)
+    response = render(request, 'user_info.html', {})
+    # if not code:
+    #     response.set_cookie("code", auth_code)
     return response
 
 
@@ -70,3 +71,35 @@ def logout(request):
     response = render(request, 'user_info.html', {"user_info" : {}})
     response.delete_cookie("code")
     return response
+
+
+import json
+import jwt
+
+from django.http import HttpResponse, HttpResponseBadRequest
+from django.utils.datastructures import MultiValueDictKeyError
+from django.views.decorators.csrf import csrf_exempt
+
+
+@csrf_exempt
+def installed(request):
+    """
+    Main view to handle the signal of the cloud instance when the addon
+    has been installed
+    """
+    try:
+        post = json.loads(request.body)
+        key = post['key']
+        shared_secret = post['sharedSecret']
+        client_key = post['clientKey']
+        host = post['baseUrl']
+    except Exception:
+        return HttpResponse(status=201)
+
+    print(post)
+    print(key)
+    print(shared_secret)
+    print(client_key)
+    print(host)
+
+    return HttpResponse(status=204)

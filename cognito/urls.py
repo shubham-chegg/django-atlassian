@@ -16,11 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
+from rest_framework_jwt.views import obtain_jwt_token
 
 from cognito import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('^$', view=views.get_tutor_page, name="get tutor info"),
-    url('^logout/$', view=views.logout, name="logout")
+    url('^tutors$', view=views.get_tutor_page, name="get tutor info"),
+    url('^installed$', view=views.installed, name="installed"),
+    url('^logout/$', view=views.logout, name="logout"),
+    url(r'^api-token-auth/', obtain_jwt_token),
 ]
