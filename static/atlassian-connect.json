@@ -3,7 +3,7 @@
     "description": "<Your app description>",
     "version": "1.1",
     "key": "some-private-key",
-    "baseUrl": "https://c8dc569f.ngrok.io",
+    "baseUrl": "https://cb8fc489.ngrok.io",
     "vendor": {
         "name": "Chegg, Inc.",
         "url": "http://www.chegg.com"
@@ -21,7 +21,7 @@
     "modules": {
         "generalPages": [
             {
-                "url": "/tutors",
+                "url": "/admin",
                 "key": "some-private-key-2",
                 "location": "system.top.navigation.bar",
                 "name": {

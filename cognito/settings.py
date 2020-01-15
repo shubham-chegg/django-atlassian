@@ -25,7 +25,9 @@ SECRET_KEY = 'r8u1qch8qb2p_ug7)3rtscw#tmjqr!(1_1#4z6$x)1r^=yja5y'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["c8dc569f.ngrok.io", "localhost"]
+ALLOWED_HOSTS = ["cb8fc489.ngrok.io", "localhost"]
+
+X_FRAME_OPTIONS = 'ALLOWALL'
 
 
 # Application definition
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'cognito.backends.MyMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

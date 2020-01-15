@@ -47,7 +47,6 @@ def get_user_info(access_token):
 
     return {}
 
-
 def get_tutor_page(request):
     print(request)
     code = request.COOKIES.get('code')
